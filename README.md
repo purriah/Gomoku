@@ -1,4 +1,4 @@
 gomoku
 ======
 
-a super cool Gomoku written in Python
+a super cool Gomoku game written in Python
