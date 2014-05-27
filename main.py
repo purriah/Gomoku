@@ -1,5 +1,6 @@
 from Tkinter import Frame, Canvas, Label, Button, LEFT,RIGHT, ALL, Tk
 from board import Board
+import math
 
 class main:
    
@@ -37,11 +38,26 @@ class main:
 
         for j in xrange(0,300,20):
             self.canvas.create_line(0,j,300,j)
+    
+    def distance(self,x1,y1,x2,y2):
+        return math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))
+
 
         
     def multiplayer(self,event):
         x = event.x
         y = event.y
+        for j in range(0,300,20):
+            for i in range(0,300,20):
+                if (self.distance(x,y,i,j)<5):
+                    print("click",i,j)
+                    self.canvas.create_oval( i+5, j+5, i-5, j-5, width=2, outline="black")
+                    
+
+
+
+
+
         
         print(x,y,self.canvas.find_closest(x,y)[0])
 
