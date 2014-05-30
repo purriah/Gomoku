@@ -1,7 +1,7 @@
 class Board:
-	config = [[0 for x in xrange(15)] for x in xrange(15)] 
+	
 	def __init__(self):
-		pass
+		self.config = [[0 for x in xrange(15)] for x in xrange(15)] 
 
 	def toString(self):
 		rtn="-------------------------------"

@@ -1,5 +1,6 @@
 from Tkinter import Frame, Canvas, Label, Button, LEFT,RIGHT, ALL, Tk
 from board import Board
+from player import Player
 import math
 
 class main:
@@ -19,12 +20,14 @@ class main:
 
     def start1(self):
         self.canvas.delete(ALL)
-        self.label['text']=('Tic Tac Toe Game')
         self.canvas.bind("<ButtonPress-1>", self.multiplayer)  
         self._board()
         self.board=Board() 
-        self.i=0
+        self.player1 = Player(1)
+        self.player2 = Player(2)
+        self.turn = 1
         self.j=False
+        self.Start1['text']=("Click To Restart")
 
 
     def end(self):
@@ -45,14 +48,34 @@ class main:
 
         
     def multiplayer(self,event):
+
         x = event.x
         y = event.y
         for j in range(0,300,20):
             for i in range(0,300,20):
                 if (self.distance(x,y,i,j)<5):
-                    print("click",i,j)
-                    self.canvas.create_oval( i+5, j+5, i-5, j-5, width=2, outline="black")
-                    
+                    if self.turn==1:
+                        print("click",i,j)
+                        self.canvas.create_oval( i+5, j+5, i-5, j-5, width=2, outline="black")
+                        self.player1.move(self.board,i/20,j/20)
+                        self.turn=2
+                        if self.player1.win(self.board,i/20,j/20):
+                            self.label['text']=('Play 1 Wins')
+
+                            print("Player 1 wins")
+                            self.end()
+                    else:
+                        print("click",i,j)
+                        self.canvas.create_oval( i+5, j+5, i-5, j-5, width=2, outline="pink")
+                        self.player2.move(self.board,i/20,j/20)
+                        self.turn=1
+                        if self.player2.win(self.board,i/20,j/20):
+                            self.label['text']=('Play 2 Wins')
+                            print("Player 2 wins")
+                            self.end()
+
+
+
 
 
 
