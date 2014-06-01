@@ -1,4 +1,5 @@
 class Board:
+
 	
 	def __init__(self):
 		self.config = [[0 for x in xrange(15)] for x in xrange(15)] 
@@ -14,6 +15,4 @@ class Board:
 
 				rtn+=str(pos)+"|"
 		rtn+="\n-------------------------------"
-
-		return rtn				
-		
+		return rtn

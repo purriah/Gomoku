@@ -73,22 +73,8 @@ class main:
                             self.label['text']=('Play 2 Wins')
                             print("Player 2 wins")
                             self.end()
-
-
-
-
-
-
-
-
         
         print(x,y,self.canvas.find_closest(x,y)[0])
-
-
-
-
-
-
 
     def check(self):
         #horizontal check

@@ -1,7 +1,6 @@
 from Tkinter import Frame, Canvas, Label, Button, LEFT,RIGHT, ALL, Tk
 from random import randint
 
-
 class main:
    
     def __init__(self,master):

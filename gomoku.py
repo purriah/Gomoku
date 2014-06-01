@@ -26,7 +26,6 @@ class Gomoku:
 			turn_x = raw_input("Player 2 turn x: ")	
 			turn_y = raw_input("Player 2 turn y: ")
 
-
 			while not (self.player2.check_legal(self.board,int(turn_x),int(turn_y))):
 				turn_x = raw_input("Player 2 turn x: ")	
 				turn_y = raw_input("Player 2 turn y: ")
@@ -35,9 +34,6 @@ class Gomoku:
 			if self.player2.win(self.board,int(turn_x),int(turn_y)):
 				print("Player 2 wins")
 				return
-
-		
-
 
 game = Gomoku()
 game.play()
